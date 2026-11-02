@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Monitor - Security & Transaction Verification</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>Risk Monitor &amp; Transaction Verification</h1>
+            <div class="sub">Monitor - Detect - Hold - Review / Verify - Resume</div>
+        </div>
+        <div class="controls">
+            <button id="LiveBtn">Start live monitoring</button>
+            <select id="speed">
+                <option value="2200">Normal Speed</option>
+                <option value="1000">Fast Speed</option>
+                <option value="500">Very Fast Speed</option>
+            </select>
+            <select id="reviewer" title="Signed-in reviewer">
+                <option value="">Select Reviewer</option>
+                <option value="reviewer1">Reviewer 1</option>
+                <option value="reviewer2">Reviewer 2</option>
+            </select>
+        </div>
+    </header>
+
+    <nav>
+        <a data-view="monitor" class="active">Monitor</a>
+        <a data-view="queue">Review queue <span
+            id="queueCount" class="count hidden">0</span></a>
+        <a data-view="accounts">Accounts</a>
+        <a data-view="rules">Detection Rules</a>
+        <a data-view="audits">Audit logs</a>
+    </nav>
+
+    <main>
+        <!-- MONITOR VIEW -->
+        <section id="view-monitor" 
+        div class="kpis">
+            <div class="kpi">
+                <div class="kpi"><div class="label">Events Processed</div><div class="value" id="kpiTotal">0</div></div>
+            </div>
+            <div class="kpi"><div class="label">Allowed</div>
+            <div class="value ok" id="kpiAllowed">0</div></div>
+            <div class="kpi"><div class="label">Sent to Verification</div><div class="value warn" id="kpiVerification">0</div></div>
+            <div class="kpi"><div class="label">Blocked &amp; held</div><div class="value bad" id="kpiBlock">0</div></div>
+            <div class="kpi"><div class="label">Value protected</div><div class="value" id="kpiValue">0</div></div>
+            </div>
+
+            <div class="grid2">
+                <div class="card">
+                    <h2>Live activity</h2>
+                <div class="scroll">
+                    <table>
+                        <thead>
+                            <tr><th>Time</th><th>Account</th>
+                            <th>Activity</th><th>Score</th><th>Decision</th></tr>
+                        </thead>
+                        <tbody id="feed">
+                            <tr><td colspan="5" class="empty">Start the live feed to see activity or run a scenario</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Test scenarios</h2>
+                <div class="card-body scenarios">
+                    <button data-scenario="takeover"></button>Account Takeover<small>Failed logins abroad, password reset, gift cards</small></button>
+                    <button data-scenario="CardTesting"></button>Card Testing<small>New cards, tiny orders, high value</small></button>
+                    <button data-scenario="Payout"></button>Payout redirection<small>Bank details changed, the full withdrawal</small></button>
+                    <button data-scenario="Refund"></button>Refund abuse<small>Multiple refunds, suspicious patterns, Repeated "item not received" claims</small></button>
+                    <button data-scenario="normal"></button>Normal customer behavior<small>Should be allowed</small></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEW QUEUE  -->
+        <section id="view-queue" class="hidden">
+            <div class="toolbar">
+                <b>Cases</b>
+                <select id="queueFilter">
+                    <option value="open">Open</option>
+                    <option value="resolved">Resolved</option>
+                    <option value="all">All</option>
+                </select>
+            </div>
+            <div id="queue"></div>
+        </section>
+
+        <!-- ACCOUNTS -->
+        <section id="view-accounts" class="hidden">
+            <div class="card">
+                <h2>Monitored Accounts</h2>
+                <table>
+                    <thead><tr><th>Account</th><th>Type</th><th>Country</th><th>Known devices</th><th>Avg order / balance</th><th>Status</th><th></th></tr></thead>
+                    <tbody id="accounts"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- RULES -->
+        <section id="view-rules" class="hidden">
+            <div class="grid2">
+                <div class="card">
+                    <h2>Detection rules</h2>
+                    <div class="card-body" id="rules"></div>
+                </div>
+                <div class="card">
+                    <h2>Thresholds</h2>
+                    <div class="card-body">
+                        <p><label>Verify at score > <input 
+                            type="number" id="thVerify"></label></p>
+                        <p><label>Block &amp; hold at score > <input 
+                            type="number" id="thBlock"></label></p>
+                        <p><label>Two reviewers at score > <input 
+                            type="number" id="thDual"></label></p>
+                              <button class="primary"
+                              id="saveThresholds">Save thresholds</button>
+                        <p class="note">Only a Fraud ops Manager can change thresholds.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AUDITS -->
+        <section id="view-audits" class="hidden">
+            <div class="card">
+                <h2>Audit logs</h2>
+                <div class="scroll">
+                    <table>
+                        <thead><tr><th>Time</th><th>Actor</th><th>Action</th><th>Details</th></tr></thead>
+                        <tbody id="audits"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <!-- Order matters: each files uses things defined in the files above it -->
+     <script src="Js/data.js"></script>
+     <script src="Js/helpers.js"></script>
+     <script src="Js/engine.js"></script>
+     <script src="Js/pipeline.js"></script>
+     <script src="Js/render.js"></script>
+     <script src="Js/review.js"></script>
+     <script src="Js/simulator.js"></script>
+     <script src="Js/main.js"></script>
+</body>
+</html>

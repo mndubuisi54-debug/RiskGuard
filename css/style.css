@@ -1,0 +1,15 @@
+/* --------- Colours --------- */
+:root {
+--bg: #f4f3ef;
+--panel: #fff;
+--ink: #1b1d21;
+--muted: #6b6f78;
+--line: #e3e1db;
+--ok: #1f7a4d;    
+--ok-bg: #e5f3ea;
+--warn: #a35c00;  
+--warn-bg: #fdf1de;
+--bad: #b42318;   
+--bad-bg: #fde8e6;
+--accent: #23395d;
+}
