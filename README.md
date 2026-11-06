@@ -208,6 +208,12 @@ Built-in scenarios reproduce common fraud patterns for testing and demos:
 
 ---
 
+![Risk Monitor Dashboard](docs/dashboard.png)
+![Accounts](docs/accounts.png)
+![Review Queue](docs/review-queue.png)
+![Monitor](docs/monitor.png)
+![Audit-log](docs/rules.png)
+
 ## ⚠️ Disclaimer
 
 This project is a **prototype for educational and demonstration purposes**. All data is simulated, scoring runs client-side, and state is held in browser memory. It is not intended for production use without the server-side hardening listed in the roadmap.
