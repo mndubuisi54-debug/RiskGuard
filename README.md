@@ -148,7 +148,7 @@ No build step, no dependencies. It runs in any modern browser.
 
 ```bash
 # Clone the repository
-git clone https://github.com/ mndubuisi54-debug/risk-monitor.git
+git clone https://github.com/mndubuisi54-debug/risk-monitor.git
 cd risk-monitor
 ```
 
@@ -208,11 +208,12 @@ Built-in scenarios reproduce common fraud patterns for testing and demos:
 
 ---
 
-![Risk Monitor Dashboard](docs/dashboard.png)
-![Accounts](docs/accounts.png)
-![Review Queue](docs/review-queue.png)
+![Dashboard](docs/dashboard.png)
 ![Monitor](docs/monitor.png)
-![Audit-log](docs/rules.png)
+![Review Queue](docs/review-queue.png)
+![Accounts](docs/accounts.png)
+![Audit](docs/rules.png)
+
 
 ## ⚠️ Disclaimer
 
