@@ -16,6 +16,14 @@
 
 Sentinel funnels every account event (sign-ins, orders, payment changes, refunds and payouts) through a single processing pipeline. Each event is checked against the account's hold status, scored from 0 to 100 by a weighted rules engine, and routed to one of three outcomes: **allow**, **pause for verification**, or **block and hold the account**. Held activity cannot resume until it passes a one-time code check or an authorised reviewer releases it.
 
+---
+
+![Dashboard](docs/dashboard.png)
+![Monitor](docs/monitor.png)
+![Review Queue](docs/review-queue.png)
+![Accounts](docs/accounts.png)
+![Audit](docs/rules.png)
+
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │                       Event Ingestion                        │
@@ -205,14 +213,6 @@ Built-in scenarios reproduce common fraud patterns for testing and demos:
 - [ ] Tamper-evident, write-once audit storage
 - [ ] Machine-learning risk score alongside the rules engine
 - [ ] Reviewer alerts (email / Slack) and case SLA timers
-
----
-
-![Dashboard](docs/dashboard.png)
-![Monitor](docs/monitor.png)
-![Review Queue](docs/review-queue.png)
-![Accounts](docs/accounts.png)
-![Audit](docs/rules.png)
 
 
 ## ⚠️ Disclaimer
