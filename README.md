@@ -1,4 +1,4 @@
-# 🛡️ Sentinel: Risk Monitoring & Transaction Verification Engine
+# 🛡️ Riskguard: Risk Monitoring & Transaction Verification Engine
 
 > A real-time fraud detection and transaction verification system for online marketplaces. It monitors account activity, scores every action with a weighted rules engine, automatically places suspicious accounts on temporary hold, and requires customer verification or authorised reviewer sign-off before activity can resume.
 
